@@ -29,7 +29,7 @@ public class TweetListActivity extends ListActivity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tweetlist);
-		
+		// added a branch in the remote and pushing now
 	//	tweetlist = (ListView)findViewById(R.id.list);
 		
 		/*for(int i=0;i<10;i++){
