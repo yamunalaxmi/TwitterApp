@@ -1,6 +1,8 @@
 package com.example.thriveni.twitterapp.model;
 
-public class Tweet /*implements Serializable */{
+import java.io.Serializable;
+
+public class Tweet implements Serializable {
 
     private static final long serialVersionUID = 1L;
 	String id, title , body;

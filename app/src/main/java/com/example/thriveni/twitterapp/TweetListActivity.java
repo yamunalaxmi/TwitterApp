@@ -3,6 +3,7 @@ package com.example.thriveni.twitterapp;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 
 import com.example.thriveni.twitterapp.model.Tweet;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,8 +48,7 @@ public class TweetListActivity extends ListActivity{
 		    tweets.add(tweet);
 		}
 
-
-       /* try {
+        try {
             FileOutputStream fos = openFileOutput(TWEETS_CACHE_FILE, MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(tweets);
@@ -55,17 +58,15 @@ public class TweetListActivity extends ListActivity{
         } catch (IOException e) {
             e.printStackTrace();
             Log.d("codelearn", "Error writing tweets");
-        }*/
+        }
 
+ //	    arrayadapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tweetlistarray);
 
+        System.out.println("aetting adapter");
 
-
-        //	arrayadapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tweetlistarray);
-		
 		arrayadapter = new TweetAdapter(this, tweets);
 		setListAdapter(arrayadapter);
-		
-		
+
 	}
 
 	@Override
