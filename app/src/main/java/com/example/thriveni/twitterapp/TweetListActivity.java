@@ -17,9 +17,9 @@ public class TweetListActivity extends ListActivity{
 	ListView tweetlist;
 	String tweetlistarray[] = new String[10];
 	ArrayAdapter<Tweet> arrayadapter ;
-	
-	List<Tweet>  tweets = new ArrayList<Tweet>(); 
-	
+	List<Tweet>  tweets = new ArrayList<Tweet>();
+    String FILENAME = "hello_file";
+    private static final String TWEETS_CACHE_FILE = "tweet_cache.ser";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -33,16 +33,34 @@ public class TweetListActivity extends ListActivity{
 			tweetlistarray[i]= "String "+i;
 			
 		}*/
-		
-		
-		for ( int i = 0; i < 20; i++ ) {
+
+
+
+
+        for ( int i = 0; i < 20; i++ ) {
 		    Tweet tweet = new Tweet();
 		    tweet.setTitle("A nice header for Tweet # " +i);
 		    tweet.setBody("Some random body text for the tweet # " +i);
 		    tweets.add(tweet);
 		}
-		
-	//	arrayadapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tweetlistarray);
+
+
+       /* try {
+            FileOutputStream fos = openFileOutput(TWEETS_CACHE_FILE, MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(tweets);
+            oos.close();
+            fos.close();
+            Log.d("codelearn", "Successfully wrote tweets to the file.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d("codelearn", "Error writing tweets");
+        }*/
+
+
+
+
+        //	arrayadapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tweetlistarray);
 		
 		arrayadapter = new TweetAdapter(this, tweets);
 		setListAdapter(arrayadapter);
